@@ -1,0 +1,38 @@
+# Node
+node_modules/
+.pnpm-store/
+*.tsbuildinfo
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+.next/
+.turbo/
+.tanstack/
+.nitro/
+.output/
+.vinxi/
+.wrangler/
+coverage/
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS / Editors
+.DS_Store
+.vscode/
+.idea/
+
+# Relay local state
+.relay/
+.relay-data*/

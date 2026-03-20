@@ -1,0 +1,25 @@
+{
+  "name": "relay",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Relay monorepo for the PowerSync AI Hackathon",
+  "packageManager": "pnpm@10.6.1",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @relay/web dev",
+    "demo:dev": "RELAY_DATA_DIR=$PWD/packages/relay-sdk/.relay-data VITE_RELAY_USE_LOCAL_BRIDGE=true pnpm --filter @relay/web dev -- --host 127.0.0.1",
+    "real-browser": "pnpm --filter @relay/relay-sdk real-browser",
+    "real-browser-visible": "pnpm --filter @relay/relay-sdk real-browser-visible",
+    "demo:reset": "pnpm --filter @relay/relay-sdk exec node ./scripts/reset-demo-state.mjs",
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "preflight": "pnpm typecheck && pnpm --filter @relay/relay-sdk verify-control-loop && pnpm --filter @relay/web build",
+    "lint": "echo 'Lint configuration will be added in later phases'"
+  },
+  "devDependencies": {
+    "@types/node": "^24.6.1",
+    "typescript": "^5.9.3"
+  }
+}
