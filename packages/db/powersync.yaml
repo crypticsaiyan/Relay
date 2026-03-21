@@ -1,0 +1,61 @@
+# Relay PowerSync sync rules.
+# These rules make control_commands bidirectional so browser-issued commands
+# are synced down to machine SQLite for immediate pause/resume/redirect execution.
+
+sync_rules:
+  agent_sessions:
+    sql: |
+      SELECT *
+      FROM agent_sessions
+      WHERE user_id = token.sub OR share_token IS NOT NULL
+
+  agent_actions:
+    sql: |
+      SELECT *
+      FROM agent_actions
+      WHERE session_id IN (
+        SELECT id
+        FROM agent_sessions
+        WHERE user_id = token.sub OR share_token IS NOT NULL
+      )
+      ORDER BY sequence_number ASC
+
+  agent_reasoning:
+    sql: |
+      SELECT *
+      FROM agent_reasoning
+      WHERE session_id IN (
+        SELECT id
+        FROM agent_sessions
+        WHERE user_id = token.sub OR share_token IS NOT NULL
+      )
+
+  control_commands:
+    sql: |
+      SELECT *
+      FROM control_commands
+      WHERE session_id IN (
+        SELECT id
+        FROM agent_sessions
+        WHERE user_id = token.sub OR share_token IS NOT NULL
+      )
+
+  drift_alerts:
+    sql: |
+      SELECT *
+      FROM drift_alerts
+      WHERE session_id IN (
+        SELECT id
+        FROM agent_sessions
+        WHERE user_id = token.sub OR share_token IS NOT NULL
+      )
+
+  watchers:
+    sql: |
+      SELECT *
+      FROM watchers
+      WHERE session_id IN (
+        SELECT id
+        FROM agent_sessions
+        WHERE user_id = token.sub OR share_token IS NOT NULL
+      )
