@@ -1,0 +1,35 @@
+{
+  "name": "@relay/relay-sdk",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./bridge-client": "./bridge-client.ts"
+  },
+  "bin": {
+    "relay-watch": "./relay-watch.js",
+    "relay-real-browser": "./real-browser.js"
+  },
+  "scripts": {
+    "relay-watch": "node --import tsx ./index.ts",
+    "real-browser": "node --import tsx ./index.ts",
+    "real-browser-visible": "node --import tsx ./index.ts --headless false",
+    "verify-control-loop": "node --import tsx ./control-loop-check.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.15.5",
+    "tsx": "^4.21.0"
+  },
+  "dependencies": {
+    "@powersync/common": "^1.49.0",
+    "@powersync/node": "^0.18.1",
+    "@relay/shared": "workspace:^",
+    "better-sqlite3": "^12.8.0",
+    "dotenv": "^17.3.1",
+    "ollama": "^0.6.0",
+    "pg": "^8.20.0",
+    "playwright": "^1.52.0"
+  }
+}
