@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "Relay monorepo for the PowerSync AI Hackathon",
+  "license": "MIT",
   "packageManager": "pnpm@10.6.1",
   "engines": {
     "node": ">=22.0.0"

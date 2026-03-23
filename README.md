@@ -1,7 +1,7 @@
 <div align="center">
   <h1>Relay</h1>
   <p><strong>The control plane for AI agents working in real products.</strong></p>
-  <p>Relay gives operators a live feed, session replay, redirects, handoffs, and bridge-based integration on top of a local-first state model.</p>
+  <p>Relay is a website where you can watch your AI agent work in real time from any browser: your phone, another laptop, anywhere. You run one terminal command on your machine to start it. From that point, every action your agent takes streams live to the website. You can pause the agent, redirect it with a new instruction, or stop it, all from the browser and the command reaches the agent on your machine instantly via PowerSync.</p>
   <p>
     <img alt="Status Prototype" src="https://img.shields.io/badge/Status-Prototype-0F172A?style=for-the-badge&labelColor=020617" />
     <img alt="Node 22+" src="https://img.shields.io/badge/Node-22%2B-0F172A?style=for-the-badge&logo=nodedotjs&logoColor=7EE787&labelColor=020617" />
@@ -74,6 +74,16 @@ The judge-facing loop is the same one the product depends on:
 2. PowerSync propagates it to the machine.
 3. The local runtime executes it and marks it as handled.
 4. Relay reflects the new state back to operators in real time.
+
+## Stack Usage
+
+- **Local-first principles**: Relay writes session state to local SQLite first on both the machine and the browser, keeps a local-only bridge mode available when remote sync is unavailable, demonstrates offline queueing in `/demo`, and supports optional local drift checks through Ollama.
+
+- **PowerSync**: PowerSync keeps browser-local and machine-local SQLite state synchronized, propagates operator control commands across devices, and supports the upload/download path that turns local-first writes into shared session state.
+
+- **TanStack**: `apps/web` is built on TanStack Start and TanStack Router, and uses TanStack-powered routing plus server functions to drive the live feed, timeline replay, handoff, connect, and demo flows.
+
+- **Neon**: Neon is part of the backend architecture through the schema and migration layer in `packages/db`, the durable event model, and the PowerSync upload path that persists actions, reasoning, control commands, and session history.
 
 ## Architecture
 <img src="docs/assets/relay_architecture_diagram.svg" alt="Relay architecture diagram" width="100%" />
@@ -190,8 +200,6 @@ relay/
     db/                      # Migrations and PowerSync / Neon database helpers
   docs/
     ARCHITECTURE.md          # System behavior and demo narrative
-    PHASES.md                # Implementation phases and acceptance checklist
-    SUBMISSION.md            # Submission checklist and asset planning
 ```
 
 ## Environment
@@ -220,9 +228,6 @@ pnpm --filter @relay/relay-sdk verify-control-loop
 pnpm preflight
 ```
 
-## Docs
+## License
 
-- [Architecture context](./docs/ARCHITECTURE.md)
-- [Build phases](./docs/PHASES.md)
-- [Submission checklist](./docs/SUBMISSION.md)
-
+[MIT](./LICENSE)
