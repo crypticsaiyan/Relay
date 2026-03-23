@@ -1,0 +1,25 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="relay-bg" x1="64" y1="48" x2="448" y2="464" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="1" stop-color="#09090B"/>
+    </linearGradient>
+    <linearGradient id="relay-glow" x1="116" y1="92" x2="382" y2="388" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1D4ED8"/>
+      <stop offset="1" stop-color="#38BDF8"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="40" y="40" width="432" height="432" rx="112" fill="url(#relay-bg)"/>
+  <rect x="40" y="40" width="432" height="432" rx="112" stroke="#334155" stroke-width="16"/>
+
+  <circle cx="150" cy="156" r="40" fill="#10B981"/>
+  <circle cx="150" cy="156" r="14" fill="#064E3B"/>
+
+  <rect x="168" y="168" width="176" height="176" rx="48" fill="#F8FAFC"/>
+  <rect x="168" y="168" width="176" height="176" rx="48" stroke="url(#relay-glow)" stroke-width="16"/>
+
+  <rect x="228" y="228" width="56" height="56" rx="16" fill="#111827"/>
+
+  <path d="M356 356L402 402" stroke="#38BDF8" stroke-width="28" stroke-linecap="round"/>
+</svg>

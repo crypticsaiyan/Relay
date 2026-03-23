@@ -20,7 +20,7 @@
 </div>
 
 <p align="center">
-  <img src="docs/assets/relay-live-feed.svg" alt="Relay live feed preview" width="100%" />
+  <img src="docs/assets/live.png" alt="Relay live feed preview" width="100%" />
 </p>
 
 Relay was built for the PowerSync AI Hackathon, but the repo is aimed at a real operating model: an agent runs locally, operators watch it in the browser, and the same session can be paused, redirected, replayed, and handed off without losing context.
@@ -38,8 +38,8 @@ Relay was built for the PowerSync AI Hackathon, but the repo is aimed at a real 
 Representative screens from the current routes in this repo.
 
 <p align="center">
-  <img src="docs/assets/relay-timeline.svg" alt="Relay timeline replay preview" width="49%" />
-  <img src="docs/assets/relay-connect.svg" alt="Relay connect route preview" width="49%" />
+  <img src="docs/assets/home.png" alt="Relay timeline replay preview" width="49%" />
+  <img src="docs/assets/ss.png" alt="Relay connect route preview" width="49%" />
 </p>
 
 | Route | Purpose |
@@ -74,6 +74,9 @@ The judge-facing loop is the same one the product depends on:
 2. PowerSync propagates it to the machine.
 3. The local runtime executes it and marks it as handled.
 4. Relay reflects the new state back to operators in real time.
+
+## Architecture
+<img src="docs/assets/relay_architecture_diagram.svg" alt="Relay architecture diagram" width="100%" />
 
 ## Quickstart
 
