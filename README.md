@@ -23,8 +23,6 @@
   <img src="docs/assets/live.png" alt="Relay live feed preview" width="100%" />
 </p>
 
-Relay was built for the PowerSync AI Hackathon, but the repo is aimed at a real operating model: an agent runs locally, operators watch it in the browser, and the same session can be paused, redirected, replayed, and handed off without losing context.
-
 ## Why Relay
 
 - Watch actions, screenshots, reasoning, drift alerts, and operator controls in one session view.
