@@ -208,7 +208,7 @@ Copy `.env.example` to `.env` and fill in the pieces you need for your mode:
 | --- | --- |
 | `GEMINI_API_KEY`, `GEMINI_MODEL` | Default sample-agent model setup |
 | `GROQ_API_KEY`, `GROQ_MODEL` | Optional Groq-based sample-agent setup |
-| `POWERSYNC_URL`, `POWERSYNC_DEV_TOKEN`, `POWERSYNC_PRIVATE_KEY` | PowerSync-backed sync and token issuance |
+| `POWERSYNC_URL`, `POWERSYNC_DEV_TOKEN`| PowerSync-backed sync and token issuance |
 | `VITE_POWERSYNC_URL`, `VITE_POWERSYNC_DEV_TOKEN` | Browser-side sync configuration |
 | `DATABASE_URL`, `DATABASE_URL_UNPOOLED` | Neon migrations and PowerSync uploads |
 | `RELAY_SESSION_TOKEN` | Default user/session identity for local runs |
